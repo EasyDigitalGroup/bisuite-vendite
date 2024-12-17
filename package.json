@@ -9,12 +9,14 @@
     "start": "node ./dist/src/index.js",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "lint:fix": "npm run lint --fix",
+    "lint:fix": "pnpm run lint --fix",
     "build": "tsc && tsc-alias",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
-    "run:manual": "tsx src/runner-manual.ts"
+    "run:manual": "tsx src/runner-manual.ts",
+    "prepare": "husky",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "@libsql/client": "^0.14.0",
@@ -36,9 +38,16 @@
     "drizzle-kit": "^0.26.2",
     "eslint": "^9.16.0",
     "eslint-plugin-format": "^0.1.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
     "tsc-alias": "^1.8.10",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
     "vitest": "^2.1.6"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "pnpm run lint:fix"
+    ]
   }
 }

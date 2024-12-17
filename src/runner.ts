@@ -9,6 +9,7 @@ export async function runner() {
   console.log("Executing runner..");
 
   const istanze = await getAvailableInstances();
+
   console.log(`[AVAILABLE ISTANCES]: ${istanze}`);
   for (const item of istanze) {
     const { url, istanza } = item;
@@ -55,7 +56,7 @@ export async function runner() {
           vendita_data_inizio: new Date(v.vendita_data_inizio).getTime(),
           vendita_data_fine: new Date(v.vendita_data_fine).getTime(),
           vendita_data_scontrino: new Date(v.vendita_data_scontrino).getTime(),
-        }
+        };
         await tx.insert(vendite).values(vendita).onConflictDoUpdate({
           target: vendite.vendita_numero_vendita,
           set: vendita,
@@ -70,4 +71,3 @@ export async function runner() {
 
   console.log("Done!");
 }
-
