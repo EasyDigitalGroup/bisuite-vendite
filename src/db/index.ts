@@ -39,6 +39,7 @@ export async function checkDatabaseExists(idIstanza: string): Promise<boolean> {
       return false;
     return true;
   }
+  // eslint-disable-next-line unused-imports/no-unused-vars
   catch (error) {
     return false;
   }

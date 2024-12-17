@@ -8,6 +8,7 @@ export default defineConfig({
   dialect: "turso",
   dbCredentials: {
     url: env.TURSO_PARENT_DB_URL,
-    authToken: "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3MzQ0NDkzOTksImlkIjoiMDM1NzBhMDgtNzNhMi00Y2MxLThlMzgtMTYyYmM2OWEyOTYwIn0.WUpFlE0DsYMFCigiaA0HB_pVDh24M364Ku8cALATI3nnWe4wQB4gr2VeniA4n0O1JPyjsI6moCaAlXyuHlWVBQ",
+
+    authToken: env.TURSO_GROUP_AUTH_TOKEN,
   },
 });
