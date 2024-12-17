@@ -87,7 +87,7 @@ export const vendite = sqliteTable("vendite", {
 });
 
 export const VenditaSchema = createSelectSchema(vendite);
-export const CreateVenditaSchema = createInsertSchema(vendite)
+export const CreateVenditaSchema = createInsertSchema(vendite);
 export const UpdateVenditaSchema = CreateVenditaSchema.partial().omit({
   vendita_numero_vendita: true,
 });
