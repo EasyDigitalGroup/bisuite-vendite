@@ -8,7 +8,6 @@ export default defineConfig({
   dialect: "turso",
   dbCredentials: {
     url: env.TURSO_PARENT_DB_URL,
-
     authToken: env.TURSO_GROUP_AUTH_TOKEN,
   },
 });

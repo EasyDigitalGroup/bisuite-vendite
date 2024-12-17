@@ -18,7 +18,6 @@ export async function runner() {
       console.log(`[CREATING DB]: ${item.istanza} ...`);
       const createdDb = await createDatabase(istanza);
       console.log(`[DB CREATED] - ${createdDb?.name}`);
-      await new Promise(res => setTimeout(res, 10000));
     }
 
     console.log(`[GETTING DB CLIENT]: ${item.istanza} ...`);
@@ -50,9 +49,16 @@ export async function runner() {
     const iterations = await client?.transaction(async (tx) => {
       let count = 0;
       for (const v of bisuiteVendite.data) {
-        await tx.insert(vendite).values(v).onConflictDoUpdate({
-          target: vendite.venditaNumeroVendita,
-          set: v,
+        const vendita = {
+          ...v,
+          data_attivazione: new Date(v.data_attivazione).getTime(),
+          vendita_data_inizio: new Date(v.vendita_data_inizio).getTime(),
+          vendita_data_fine: new Date(v.vendita_data_fine).getTime(),
+          vendita_data_scontrino: new Date(v.vendita_data_scontrino).getTime(),
+        }
+        await tx.insert(vendite).values(vendita).onConflictDoUpdate({
+          target: vendite.vendita_numero_vendita,
+          set: vendita,
         });
         count++;
       }
@@ -65,4 +71,3 @@ export async function runner() {
   console.log("Done!");
 }
 
-runner();

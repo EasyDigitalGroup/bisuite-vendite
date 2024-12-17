@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "b3cc1213-48e1-4ee0-ac47-8e681bbb866f",
+  "id": "f67366cf-b9d9-46ac-994b-8cef95c769d7",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "vendite": {
@@ -14,8 +14,8 @@
           "notNull": true,
           "autoincrement": false
         },
-        "created_at": {
-          "name": "created_at",
+        "data_attivazione": {
+          "name": "data_attivazione",
           "type": "integer",
           "primaryKey": false,
           "notNull": false,
@@ -24,6 +24,20 @@
         "vendita_stato": {
           "name": "vendita_stato",
           "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "vendita_data_inizio": {
+          "name": "vendita_data_inizio",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "vendita_data_fine": {
+          "name": "vendita_data_fine",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
@@ -45,6 +59,13 @@
         "vendita_numero_scontrino": {
           "name": "vendita_numero_scontrino",
           "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "vendita_data_scontrino": {
+          "name": "vendita_data_scontrino",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
@@ -556,13 +577,6 @@
         "vendita_note": {
           "name": "vendita_note",
           "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "integer",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false

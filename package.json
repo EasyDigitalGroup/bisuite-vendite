@@ -2,7 +2,7 @@
   "name": "bisuite-vendite",
   "type": "module",
   "version": "1.0.0",
-  "packageManager": "pnpm@9.14.4+sha1.64b6e81e79630419b675c555ef3b65607cfd6315",
+  "packageManager": "pnpm@9.14.4",
   "license": "MIT",
   "scripts": {
     "dev": "tsx watch src/index.ts",
@@ -10,7 +10,11 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "npm run lint --fix",
-    "build": "tsc && tsc-alias"
+    "build": "tsc && tsc-alias",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "run:manual": "tsx src/runner-manual.ts"
   },
   "dependencies": {
     "@libsql/client": "^0.14.0",

@@ -1,10 +1,13 @@
 CREATE TABLE `vendite` (
 	`vendita_numero_vendita` text PRIMARY KEY NOT NULL,
-	`created_at` integer,
+	`data_attivazione` integer,
 	`vendita_stato` text,
+	`vendita_data_inizio` integer,
+	`vendita_data_fine` integer,
 	`listino_nome` text,
 	`listino_tipologia_vendita` text,
 	`vendita_numero_scontrino` text,
+	`vendita_data_scontrino` integer,
 	`vendita_totale_importo_scontrino` text,
 	`vendita_codice_lotteria` text,
 	`vendita_contanti` text,
@@ -77,6 +80,5 @@ CREATE TABLE `vendite` (
 	`negozio_codice_operatore_fastweb` text,
 	`negozio_codice_operatore_sky` text,
 	`venditore_nominativo` text,
-	`vendita_note` text,
-	`updated_at` integer
+	`vendita_note` text
 );
