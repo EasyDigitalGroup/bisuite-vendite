@@ -1,13 +1,10 @@
 services:
   watchtower:
     image: containrrr/watchtower
-    command:
-      - --label-enable
-      - --interval
-      - "30"
-      - --rolling-restart
+    command: --label-enable --interval 30 --rolling-restart --debug --cleanup
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - $HOME/.docker/config.json/:/config.json
   app:
     image: ghcr.io/easydigitalgroup/bisuite-vendite:prod
     labels:
