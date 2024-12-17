@@ -11,6 +11,7 @@ export async function runner() {
   const istanze = await getAvailableInstances();
 
   console.log(`[AVAILABLE ISTANCES]: ${istanze}`);
+
   for (const item of istanze) {
     const { url, istanza } = item;
     const dbExists = await checkDatabaseExists(istanza);
