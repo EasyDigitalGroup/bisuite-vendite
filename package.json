@@ -15,7 +15,6 @@
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
     "run:manual": "tsx src/runner-manual.ts",
-    "prepare": "husky",
     "lint-staged": "lint-staged"
   },
   "dependencies": {

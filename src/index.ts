@@ -4,8 +4,8 @@ import { runner } from "./runner";
 
 console.log("Running cron..");
 CronJob.from({
-  cronTime: "* * * * *",
+  cronTime: "0 21 * * *", // everyday at 21pm
   onTick: runner,
   start: true,
+  timeZone: "Europe/Rome",
 });
-console.log("Cron running!");
