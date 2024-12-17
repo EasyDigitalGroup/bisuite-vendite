@@ -1,0 +1,26 @@
+services:
+  # watchtower:
+  #   image: containrrr/watchtower
+  #   command:
+  #     - "--label-enable"
+  #     - "--interval"
+  #     - "30"
+  #     - "--rolling-restart"
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  app:
+    image: ghcr.io/easydigitalgroup/bisuite-vendite:prod
+    # labels:
+    #   - "com.centurylinklabs.watchtower.enable=true"
+    environment:
+      - TURSO_ORG=${TURSO_ORG}
+      - TURSO_API_TOKEN=${TURSO_API_TOKEN}
+      - TURSO_GROUP_AUTH_TOKEN=${TURSO_GROUP_AUTH_TOKEN}
+      - TURSO_GROUP_NAME=${TURSO_GROUP_NAME}
+      - TURSO_PARENT_DB_URL=${TURSO_PARENT_DB_URL}
+      - TURSO_PARENT_DB_NAME=${TURSO_PARENT_DB_NAME}
+      - BISUITE_API_TOKEN=${BISUITE_API_TOKEN}
+    # deploy:
+    #   mode: replicated
+    #   replicas: 3
+    restart: always
