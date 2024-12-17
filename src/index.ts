@@ -14,7 +14,7 @@ CronJob.from({
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("V3.0.0");
+  res.send("V4.0.0");
 });
 
 app.listen(3000, () => {
