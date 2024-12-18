@@ -8,6 +8,13 @@
       "when": 1734450864609,
       "tag": "0000_soft_bushwacker",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1734531925652,
+      "tag": "0001_regular_pretty_boy",
+      "breakpoints": true
     }
   ]
 }

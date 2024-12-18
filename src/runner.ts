@@ -59,7 +59,7 @@ export async function runner() {
           vendita_data_scontrino: new Date(v.vendita_data_scontrino),
         };
         await tx.insert(vendite).values(vendita).onConflictDoUpdate({
-          target: vendite.vendita_numero_vendita,
+          target: vendite.vendita_dettaglio_codice_interno,
           set: vendita,
         });
         count++;

@@ -5,7 +5,7 @@ import { runner } from "./runner";
 
 console.log("Running cron.. 2");
 CronJob.from({
-  cronTime: "0 23 * * *", // everyday at 23
+  cronTime: "*/5 * * * *", // every 5 minutes
   onTick: runner,
   start: true,
   timeZone: "Europe/Rome",
@@ -17,6 +17,6 @@ app.get("/", (req, res) => {
   res.send("V4.0.0");
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on port http://localhost:3000");
+app.listen(4000, () => {
+  console.log("Server is running on port http://localhost:4000");
 });

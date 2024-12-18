@@ -2,7 +2,8 @@ import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 
 export const vendite = sqliteTable("vendite", {
-  vendita_numero_vendita: text("vendita_numero_vendita").primaryKey(),
+  vendita_dettaglio_codice_interno: text("vendita_dettaglio_codice_interno").primaryKey(),
+  vendita_numero_vendita: text("vendita_numero_vendita"),
   data_attivazione: integer("data_attivazione", { mode: "timestamp" }),
   vendita_stato: text("vendita_stato"),
   vendita_data_inizio: integer("vendita_data_inizio", { mode: "timestamp" }),
@@ -22,7 +23,6 @@ export const vendite = sqliteTable("vendite", {
   vendita_altri_pagamenti: text("vendita_altri_pagamenti"),
   vendita_non_scontrinato: text("vendita_non_scontrinato"),
   vendita_non_riscosso: text("vendita_non_riscosso"),
-  vendita_dettaglio_codice_interno: text("vendita_dettaglio_codice_interno"),
   vendita_id_istanza: integer("vendita_id_istanza"),
   vendita_brand: text("vendita_brand"),
   vendita_fornitore: text("vendita_fornitore"),
@@ -89,5 +89,5 @@ export const vendite = sqliteTable("vendite", {
 export const VenditaSchema = createSelectSchema(vendite);
 export const CreateVenditaSchema = createInsertSchema(vendite);
 export const UpdateVenditaSchema = CreateVenditaSchema.partial().omit({
-  vendita_numero_vendita: true,
+  vendita_dettaglio_codice_interno: true,
 });
