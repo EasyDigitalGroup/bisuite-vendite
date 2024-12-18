@@ -53,10 +53,10 @@ export async function runner() {
       for (const v of bisuiteVendite.data) {
         const vendita = {
           ...v,
-          data_attivazione: new Date(v.data_attivazione).getTime(),
-          vendita_data_inizio: new Date(v.vendita_data_inizio).getTime(),
-          vendita_data_fine: new Date(v.vendita_data_fine).getTime(),
-          vendita_data_scontrino: new Date(v.vendita_data_scontrino).getTime(),
+          data_attivazione: new Date(v.data_attivazione),
+          vendita_data_inizio: new Date(v.vendita_data_inizio),
+          vendita_data_fine: new Date(v.vendita_data_fine),
+          vendita_data_scontrino: new Date(v.vendita_data_scontrino),
         };
         await tx.insert(vendite).values(vendita).onConflictDoUpdate({
           target: vendite.vendita_numero_vendita,
